@@ -1,4 +1,4 @@
-name: Workflow Demo
+name: download
 
 on: [push]
 
@@ -18,3 +18,13 @@ jobs:
       with:
         name: hello-artifact
         path: hello.txt
+        
+    - name: Download text file
+      uses: actions/download-artifact@v2
+      with:
+        path: ./artifacts
+    - name: display 
+      run: |
+            ls
+            cat ./artifacts/hello.txt
+      
